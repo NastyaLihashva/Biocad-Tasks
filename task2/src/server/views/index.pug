@@ -1,0 +1,57 @@
+doctype html
+html(lang="ru")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet", href="../public/styles/index.css")
+        link(rel="stylesheet", href="../public/styles/modal.css")
+        title Библиотека
+    body
+        main.main
+            .container#container 
+                h1.title-page Табличный редактор
+                .table__wrapper
+                    table.table#table
+                        thead      
+                            tr
+                                th.table-th.th-id
+                                    | ID
+                                th.table-th.th-name
+                                    | Имя
+                                th.table-th.th-type
+                                    | Тип
+                                th.table-th.th-age
+                                    | Возраст
+                                th.table-th.th-handler 
+                                    | Удаление
+                        tbody
+                            each element in dbArray
+                                tr.table__row
+                                    td.table__id.table__cell= element.id
+                                    td.table-name.table__cell= element.name
+                                    td.table-type.table__cell= element.type
+                                    td.table-age.table__cell= element.age
+                                    td.table__cell
+                                        .table__actions
+                                            button.button.action-remove
+                                                span Удалить
+            button.button.btn-addItem
+                span.svg_ui
+                    span Добавить элемент
+        #modal.modal__overlay
+            .modal
+                button.button.button__close
+                h3.modal__header Добавление нового элемента
+                form
+                    label.label
+                        input#name.input.input__name(name='name' type='text' placeholder='Имя' required)
+                    label.label
+                        input#author.input.input__name(name='type' type='text' placeholder='Тип' required)
+                    label.label
+                        input#releaseData.input.input__name(name='age' type='text' placeholder='Возраст' required)
+                    button.button.button-ui_firm(type='submit')
+                        span Сохранить
+                    button.button.cancel-button
+                        span Отмена
+        script(src="../public/script/index.js") 

@@ -1,0 +1,26 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet", href="../public/styles/element.css")
+        link(rel="stylesheet", href="../public/styles/modal.css")
+        title Редактирование
+    body 
+        .container
+            h2.title= element.name
+            form#elementForm.elementForm
+                .elementForm-wrapper
+                    .elementForm__info.elementForm-content
+                        label.elementForm__label Имя
+                            input.elementForm__input(name="name" type="text" value=`${element.name}` required)
+                        label.elementForm__label Тип
+                            input.elementForm__input(name="type" type="text" value=`${element.type}` required)
+                        label.elementForm__label Возраст
+                            input.elementForm__input(name="age" type="text" value=`${element.age}` required)
+                button.btn#refresh.action-btn(type="submit") Сохранить изменения
+                button.btn#cancel Отменить изменения
+            a.btn#return(href="/") Вернуться в меню
+        #modal.modal__overlay
+        script(src="../public/script/element.js")
